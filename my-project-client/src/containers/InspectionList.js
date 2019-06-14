@@ -2,13 +2,6 @@ import React, { Component } from 'react';
 import Inspection from '../components/Inspection'
 
 class InspectionList extends Component {
-    // constructor() {
-    //     super()
-    //     this.state = {
-    //         allInspecs: []
-    //     }
-    // }
-
     state = {
         allInspecs: []
     }
@@ -19,26 +12,24 @@ class InspectionList extends Component {
         })
     }
 
-    // createInspectionItems = () => {
-    //     this.props.inspections.map(insp => {
-    //         return <Inspection key={insp.inspection_id} data={insp} />
-    //     })
-    // }
+    createInspectionItems = () => {
+        return this.props.inspections.map(insp => {
+            return (
+                <Inspection key={insp.inspection_id} data={insp} />
+            )
+        })
+    }
 
   
     render() {
-        const inspectionsA = this.props.inspections.map(insp => {
-            return <Inspection key={insp.inspection_id} data={insp} />
-        })
+
       return (
         <div>
-          {inspectionsA}
+          {this.createInspectionItems()}
         </div>
         
       )
-      
-      
-      
+
     }
   }
   
