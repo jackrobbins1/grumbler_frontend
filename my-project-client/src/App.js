@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
+import CommentBox from "./containers/CommentBox"
 import './App.css';
 
 function App() {
@@ -22,5 +23,12 @@ function App() {
     </div>
   );
 }
+
+// class App extends Component {
+//   render() {
+//     return <CommentBox />;
+//   }
+// }
+
 
 export default App;
