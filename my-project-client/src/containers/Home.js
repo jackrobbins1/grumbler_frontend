@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './containerStyles/homeStyle.css';
 import InspectionList from './InspectionList'
+import secretKey from './secret/secret.js'
 
 const recent25Inspecs = "https://data.cityofchicago.org/resource/4ijn-s7e5.json?$order=inspection_date DESC&$limit=25"
 
