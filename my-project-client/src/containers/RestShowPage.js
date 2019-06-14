@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './componentStyles/restShowStyle.css';
+import './containerStyles/restShowStyle.css';
 import CommentBox from "../containers/CommentBox"
 
 class RestShowPage extends Component {
