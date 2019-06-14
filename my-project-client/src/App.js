@@ -24,17 +24,17 @@ class App extends Component {
     return (
       <div>
         {/* <NavBar />
-        <Login /> 
+        <Login />
         <CreateAcct /> */}
         <Home />
-        {/* <UserPage />  */}
+        {/* <UserPage   />  */}
         {/* <RestShowPage /> */}
       </div>
-      
+
     )
-    
-    
-    
+
+
+
   }
 }
 
