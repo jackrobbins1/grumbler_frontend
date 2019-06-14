@@ -6,13 +6,13 @@ import CommentBox from './CommentBox'
 
 class UserPage extends Component {
     state = {
-      user: {
-      userId: "",
-      Name: "",
-      Email: "",
-      Restaurants: [],
-      Complaints: []
-    }
+        user: {
+        userId: "",
+        Name: "",
+        Email: "",
+        Restaurants: [],
+        Complaints: []
+      }
     }
 
     componentDidMount(){
@@ -44,9 +44,7 @@ class UserPage extends Component {
                 <div className="userComplaints">
                     My Complaints:
                     <CommentBox comments={this.state.user.Complaints}/>
-                    <br/>
-                    New Complaints:
-                    <Form userData={this.state.user}/>
+
                 </div>
 
             </div>
