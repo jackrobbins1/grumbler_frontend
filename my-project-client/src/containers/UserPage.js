@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './containerStyles/userPagestyle.css'
 import watchedRestaurants from './watchedRestaurants'
+import CommentBox from './CommentBox'
 
 class UserPage extends Component {
     state = {
@@ -40,4 +41,4 @@ class UserPage extends Component {
 
 }
 
-  export default UserPage;
+export default UserPage;
