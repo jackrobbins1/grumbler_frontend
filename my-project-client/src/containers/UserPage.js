@@ -1,26 +1,30 @@
 import React, { Component } from 'react';
 import './containerStyles/userPagestyle.css'
 
-import WatchedRestaurants from './watchedRestaurants'
+// import WatchedRestaurants from './WatchedRestaurants'
 import Form from '../components/Form'
 
 import CommentBox from './CommentBox'
 
 class UserPage extends Component {
     state = {
-        user: {
-        userId: "",
-        Name: "",
-        Email: "",
-        Restaurants: [],
-        Complaints: []
+    user: {
+        user_id: "",
+        username: "",
+        email: "",
+        restaurant_id: [],
+        complaint_id: []
       }
     }
 
     componentDidMount(){
-        fetch('http://localhost:3001/api/v1/users')
+        fetch('http://localhost:3001/api/v1/users/30', { mode: 'no-cors'})
         .then(resp => resp.json())
-        .then(rest => console.log(rest))
+        .then(userData => {
+            this.setState({
+               user: {...userData}
+            })
+        })
     }
 
 
@@ -42,7 +46,7 @@ class UserPage extends Component {
 
                 <div className="watchedRestaurants">
                     My Restaurants
-                    <WatchedRestaurants myRestaurants={this.state.user.Restaurants}/>
+                   
                 </div>
 
                 <div className="userComplaints">

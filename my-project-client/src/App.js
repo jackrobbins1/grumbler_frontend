@@ -55,7 +55,7 @@ class App extends Component {
         <CreateAcct /> */}
         {/* {this.state.gmapsLoaded && (
         <Home />)} */}
-        <UserPage   userDate={this.state.user}/> 
+        <UserPage   userDatas={this.state.user}/> 
         {/* <RestShowPage /> */}
       </div>
 
