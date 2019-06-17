@@ -1,5 +1,5 @@
 import React from 'react';
-import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
+import PlacesAutocomplete, { geocodeByAddress, geocodeByPlaceId, getLatLng } from 'react-places-autocomplete';
  
 class LocationSearchInput extends React.Component {
   constructor(props) {
@@ -13,7 +13,8 @@ class LocationSearchInput extends React.Component {
  
   handleSelect = address => {
     geocodeByAddress(address)
-      .then(results => getLatLng(results[0]))
+        .then(results => console.log(results))
+    //   .then(results => getLatLng(results[0]))
       .then(latLng => console.log('Success', latLng))
       .catch(error => console.error('Error', error));
   };
@@ -23,6 +24,10 @@ class LocationSearchInput extends React.Component {
         console.log('Google Maps API returned error with status: ', status)
         clearSuggestions()
     }
+
+    const searchOptions = {
+        types: ['address']
+        }
     return (
       <PlacesAutocomplete
         value={this.state.address}
