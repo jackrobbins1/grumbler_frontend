@@ -17,9 +17,11 @@ class UserPage extends Component {
       }
     }
 
-    // componentDidMount(){
-    //   fetch request to backend************
-    // }
+    componentDidMount(){
+        fetch('http://localhost:3001/api/v1/users')
+        .then(resp => resp.json())
+        .then(rest => console.log(rest))
+    }
 
 
         render() {
