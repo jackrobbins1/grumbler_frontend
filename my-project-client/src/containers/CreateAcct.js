@@ -8,7 +8,6 @@ class CreateAcct extends Component {
     render() {
       return (
         <div>
-          {/* <CommentBox /> */}
           
         </div>
         
