@@ -1,68 +1,64 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 import CommentBox from "./containers/CommentBox";
-import RestShowPage from './containers/RestShowPage';
-import NavBar from './containers/NavBar';
-import Home from './containers/Home';
-import Login from './containers/Login';
-import CreateAcct from './containers/CreateAcct';
-import UserPage from './containers/UserPage';
-import CustomHome from './containers/CustomHome'
-import secretKey from './secret/secret'
-
+import RestShowPage from "./containers/RestShowPage";
+import Home from "./containers/Home";
+import Login from "./containers/Login";
+import CreateAcct from "./containers/CreateAcct";
+import UserPage from "./containers/UserPage";
+import CustomHome from "./containers/CustomHome";
+import secretKey from "./secret1/secret";
+import Navbar from "./components/Layout/Navbar";
+import { BrowserRouter, Route, Link } from "react-router-dom";
 
 class App extends Component {
   state = {
     user: {
       userID: undefined,
       username: undefined,
-      email: undefined,
+      email: undefined
     },
     currentPage: "home",
-    gmapsLoaded: false,
-  }
+    gmapsLoaded: false
+  };
 
   handleScriptCreate() {
-    this.setState({ scriptLoaded: false })
+    this.setState({ scriptLoaded: false });
   }
-   
+
   handleScriptError() {
-    this.setState({ scriptError: true })
+    this.setState({ scriptError: true });
   }
-   
+
   handleScriptLoad() {
-    this.setState({ scriptLoaded: true })
+    this.setState({ scriptLoaded: true });
   }
 
   initMap = () => {
     this.setState({
-      gmapsLoaded: true,
-    })
-  }
+      gmapsLoaded: true
+    });
+  };
 
-  componentDidMount () {
-    window.initMap = this.initMap
-    const gmapScriptEl = document.createElement(`script`)
-    gmapScriptEl.src = `https://maps.googleapis.com/maps/api/js?key=${secretKey}&libraries=places&callback=initMap`
-    document.querySelector(`body`).insertAdjacentElement(`beforeend`, gmapScriptEl)
+  componentDidMount() {
+    window.initMap = this.initMap;
+    const gmapScriptEl = document.createElement(`script`);
+    gmapScriptEl.src = `https://maps.googleapis.com/maps/api/js?key=${secretKey}&libraries=places&callback=initMap`;
+    document
+      .querySelector(`body`)
+      .insertAdjacentElement(`beforeend`, gmapScriptEl);
   }
 
   render() {
     return (
-      <div>
-        {/* <NavBar />
-        <Login />
-        <CreateAcct /> */}
-        {this.state.gmapsLoaded && (
-        <Home />)}
-        {/* <UserPage   userDate={this.state.user}/>  */}
-        {/* <RestShowPage /> */}
-      </div>
+      <BrowserRouter>
+        <div>
+          <Navbar />
 
-    )
-
-
-
+          {this.state.gmapsLoaded && <Home />}
+        </div>
+      </BrowserRouter>
+    );
   }
 }
 
