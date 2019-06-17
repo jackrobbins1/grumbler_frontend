@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Script from 'react-load-script';
 import './App.css';
 import CommentBox from "./containers/CommentBox";
 import RestShowPage from './containers/RestShowPage';
