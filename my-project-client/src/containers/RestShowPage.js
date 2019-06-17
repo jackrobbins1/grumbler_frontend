@@ -3,21 +3,38 @@ import './containerStyles/restShowStyle.css';
 import CommentBox from "../containers/CommentBox"
 
 class RestShowPage extends Component {
+
+  state = {
+    restData:[]
+  }
+
+componentDidMount(){
+  fetch(`https://data.cityofchicago.org/resource/4ijn-s7e5.json?license_=${this.props.license_}`)
+  .then(resp => resp.json())
+  .then(rest => this.setState({
+      restData: rest
+  }))
+}
+
+
     render() {
       return (
         <div className="restShowMain">
             <div className="restHeader">
-                NAME OF RESTAURANT
+                {this.state.restData.aka_name}
+                Location:
+                {this.state.restData.address}
+                {this.state.restData.city}, {this.state.restData.state} {this.state.restData.zip}
             </div>
 
             <div className="restDetails">
                 Here are details of the RESTAURANT
                 <br/>
-                License Number:
+                License Number: {this.state.restData.license_}
                 <br/>
-                Facility Type:
+                Facility Type: {this.state.restData.facility_type}
                 <br/>
-                Risk Level:
+                Risk Level: {this.state.restData.risk}
 
             </div>
 
@@ -32,10 +49,10 @@ class RestShowPage extends Component {
 
         </div>
       )
-      
-      
-      
+
+
+
     }
   }
-  
+
   export default RestShowPage;

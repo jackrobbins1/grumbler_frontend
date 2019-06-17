@@ -27,7 +27,7 @@ class App extends Component {
         <Login />
         <CreateAcct /> */}
         <Home />
-        {/* <UserPage   />  */}
+        {/* <UserPage   userDate={this.state.user}/>  */}
         {/* <RestShowPage /> */}
       </div>
 
