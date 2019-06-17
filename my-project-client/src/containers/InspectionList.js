@@ -1,36 +1,60 @@
-import React, { Component } from 'react';
-import Inspection from '../components/Inspection'
+import React, { Component } from "react";
+import Inspection from "../components/Inspection";
+import RestShowPage from "./RestShowPage";
 
 class InspectionList extends Component {
-    state = {
-        allInspecs: []
-    }
+  state = {
+    allInspecs: [],
+    showRest: false,
+    restNum: ""
+  };
 
-    componentDidMount() {
-        this.setState({
-            allInspecs: this.props.inspections
-        })
-    }
+  handleBackButton = () => {
+    this.setState({
+      showRest: !this.state.showRest
+    });
+  };
 
-    createInspectionItems = () => {
-        return this.props.inspections.map(insp => {
-            return (
-                <Inspection key={insp.inspection_id} data={insp} />
-            )
-        })
-    }
+  handleRestClick = _license => {
+    this.setState({
+      restNum: _license,
+      showRest: !this.state.showRest
+    });
+  };
 
-  
-    render() {
-
+  renderControl = () => {
+    if (this.state.showRest) {
       return (
-        <div>
-          {this.createInspectionItems()}
-        </div>
-        
-      )
-
+        <RestShowPage
+          handleBackButton={this.handleBackButton}
+          license={this.state.restNum}
+        />
+      );
+    } else {
+      return <div>{this.createInspectionItems()}</div>;
     }
+  };
+  componentDidMount() {
+    this.setState({
+      allInspecs: this.props.inspections
+    });
   }
-  
-  export default InspectionList;
+
+  createInspectionItems = () => {
+    return this.props.inspections.map(insp => {
+      return (
+        <Inspection
+          key={insp.inspection_id}
+          data={insp}
+          handleRestClick={this.handleRestClick}
+        />
+      );
+    });
+  };
+
+  render() {
+    return <div>{this.renderControl()}</div>;
+  }
+}
+
+export default InspectionList;
