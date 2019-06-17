@@ -55,6 +55,7 @@ class App extends Component {
         <Login />
         <CreateAcct /> */}
         {this.state.gmapsLoaded && <Home />}
+        <UserPage />
       </div>
     );
   }
