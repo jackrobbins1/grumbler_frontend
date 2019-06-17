@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import "./App.css";
 import CommentBox from "./containers/CommentBox";
 import RestShowPage from "./containers/RestShowPage";
-import NavBar from "./containers/NavBar";
 import Home from "./containers/Home";
 import Login from "./containers/Login";
 import CreateAcct from "./containers/CreateAcct";
 import UserPage from "./containers/UserPage";
 import CustomHome from "./containers/CustomHome";
 import secretKey from "./secret/secret";
+import Navbar from "./components/Layout/Navbar";
+import { BrowserRouter, Route, Link } from "react-router-dom";
 
 class App extends Component {
   state = {
@@ -60,15 +61,20 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        {/* <NavBar />
-        <Login />
-        <CreateAcct /> */}
-        {/* {this.state.gmapsLoaded && <Home />} */}
-        {/* <UserPage userData={this.state.user} /> */}
-        {/* <CreateAcct getLoginData={this.getLoginData} /> */}
-        <Login getLoginData={this.getLoginData}/>
-      </div>
+        <BrowserRouter >
+          <div>
+          <Navbar />
+          {/* <NavBar />
+          <Login />
+          <CreateAcct /> */}
+          {/* {this.state.gmapsLoaded && <Home />} */}
+          {/* <UserPage userData={this.state.user} /> */}
+          {/* <CreateAcct getLoginData={this.getLoginData} /> */}
+          <Login getLoginData={this.getLoginData}/>
+          
+
+          </div>
+        </BrowserRouter>
     );
   }
 }

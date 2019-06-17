@@ -18,7 +18,13 @@ class Inspection extends Component {
     if (this.state.expanded) {
       return (
         <div onClick={this.handleClick}>
-          <div>{this.props.data.aka_name}</div>
+          <div
+            onClick={event =>
+              this.props.handleRestClick(this.props.data.license_)
+            }
+          >
+            {this.props.data.aka_name}
+          </div>
           <div>
             Date of Inspection: {this.props.data.inspection_date.slice(0, 10)}
           </div>

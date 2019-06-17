@@ -1,22 +1,25 @@
 import React, { Component } from "react";
 import "./containerStyles/restShowStyle.css";
 import CommentBox from "../containers/CommentBox";
+import RestInspectionList from "./RestInspectionList";
 
 class RestShowPage extends Component {
   state = {
-    restData: ""
+    restData: "",
+    allInspections: []
   };
 
   componentDidMount() {
     fetch(
       `https://data.cityofchicago.org/resource/4ijn-s7e5.json?license_=${
         this.props.license
-      }&$limit=1`
+      }`
     )
       .then(resp => resp.json())
       .then(rest =>
         this.setState({
-          restData: rest[0]
+          restData: rest[0],
+          allInspections: rest
         })
       );
   }
@@ -46,7 +49,7 @@ class RestShowPage extends Component {
         </div>
 
         <div className="restInspections">
-          Here is where the inspection cards will be for this restaurant
+          <RestInspectionList allInspections={this.state.allInspections} />
         </div>
 
         <div className="restComplaints">
