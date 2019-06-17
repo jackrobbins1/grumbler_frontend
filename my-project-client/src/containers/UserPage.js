@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './containerStyles/userPagestyle.css'
+
 import WatchedRestaurants from './watchedRestaurants'
 import Form from '../components/Form'
+
 import CommentBox from './CommentBox'
 
 class UserPage extends Component {
@@ -61,6 +63,4 @@ class UserPage extends Component {
   }
 }
 
-}
-
-  export default UserPage;
+export default UserPage;

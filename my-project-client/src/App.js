@@ -8,6 +8,7 @@ import Login from './containers/Login';
 import CreateAcct from './containers/CreateAcct';
 import UserPage from './containers/UserPage';
 import CustomHome from './containers/CustomHome'
+import secretKey from './secret/secret'
 
 
 class App extends Component {
@@ -17,7 +18,33 @@ class App extends Component {
       username: undefined,
       email: undefined,
     },
-    currentPage: "home"
+    currentPage: "home",
+    gmapsLoaded: false,
+  }
+
+  handleScriptCreate() {
+    this.setState({ scriptLoaded: false })
+  }
+   
+  handleScriptError() {
+    this.setState({ scriptError: true })
+  }
+   
+  handleScriptLoad() {
+    this.setState({ scriptLoaded: true })
+  }
+
+  initMap = () => {
+    this.setState({
+      gmapsLoaded: true,
+    })
+  }
+
+  componentDidMount () {
+    window.initMap = this.initMap
+    const gmapScriptEl = document.createElement(`script`)
+    gmapScriptEl.src = `https://maps.googleapis.com/maps/api/js?key=${secretKey}&libraries=places&callback=initMap`
+    document.querySelector(`body`).insertAdjacentElement(`beforeend`, gmapScriptEl)
   }
 
   render() {
@@ -26,7 +53,8 @@ class App extends Component {
         {/* <NavBar />
         <Login />
         <CreateAcct /> */}
-        <Home />
+        {this.state.gmapsLoaded && (
+        <Home />)}
         {/* <UserPage   userDate={this.state.user}/>  */}
         {/* <RestShowPage /> */}
       </div>
