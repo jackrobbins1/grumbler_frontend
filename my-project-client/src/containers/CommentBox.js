@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import CommentList from "../components/CommentList";
 import Form from "../components/Form";
-const commentsApi = "localhost:3000/comments";
+const commentsApi = "http://localhost:3001/api/v1/complaints";
 class CommentBox extends Component {
   constructor(props) {
     super(props);

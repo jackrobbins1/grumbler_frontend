@@ -54,14 +54,8 @@ class App extends Component {
         {/* <NavBar />
         <Login />
         <CreateAcct /> */}
-<<<<<<< HEAD
-        {/* {this.state.gmapsLoaded && (
-        <Home />)} */}
-        <UserPage   userDatas={this.state.user}/> 
-        {/* <RestShowPage /> */}
-=======
         {this.state.gmapsLoaded && <Home />}
->>>>>>> e4fcdbe068d7c618a4421fa4d4e2262d40950d5b
+        <UserPage />
       </div>
     );
   }

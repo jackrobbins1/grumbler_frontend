@@ -18,7 +18,7 @@ class UserPage extends Component {
     }
 
     componentDidMount(){
-        fetch('http://localhost:3001/api/v1/users/30', { mode: 'no-cors'})
+        fetch('http://localhost:3001/api/v1/users/30')
         .then(resp => resp.json())
         .then(userData => {
             this.setState({
@@ -32,15 +32,15 @@ class UserPage extends Component {
           return (
             <div className="userPageMain">
                 <div className="userHeader">
-                    {this.state.user.Name}'s Profile
+                    {this.state.user.username}'s Profile
                 </div>
 
                 <div className="userDetails">
                     My Details:
                     <br/>
-                    Name:{this.state.user.Name}
+                    Name:{this.state.user.username}
                     <br/>
-                    E-mail: {this.state.user.Email}
+                    E-mail: {this.state.user.email}
 
                 </div>
 
@@ -51,7 +51,7 @@ class UserPage extends Component {
 
                 <div className="userComplaints">
                     My Complaints:
-                    <CommentBox comments={this.state.user.Complaints}/>
+                    <CommentBox comments={this.state.user.complaints}/>
 
                 </div>
 
