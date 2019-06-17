@@ -17,15 +17,15 @@ class CommentBox extends Component {
     this.setState({ data: updatedComments });
   }
 
-  componentDidMount() {
-    fetch(commentsApi)
-      .then(resp => resp.json())
-      .then(comments => {
-        this.setState({
-          data: comments
-        });
-      });
-  }
+  // componentDidMount() {
+  //   fetch(commentsApi)
+  //     .then(resp => resp.json())
+  //     .then(comments => {
+  //       this.setState({
+  //         data: comments
+  //       });
+  //     });
+  // }
 
   render() {
     return (

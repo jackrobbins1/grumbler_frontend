@@ -17,15 +17,15 @@ class UserPage extends Component {
       }
     }
 
-    componentDidMount(){
-        fetch('http://localhost:3001/api/v1/users/30')
-        .then(resp => resp.json())
-        .then(userData => {
-            this.setState({
-               user: {...userData}
-            })
-        })
-    }
+    // componentDidMount(){
+    //     fetch('http://localhost:3001/api/v1/users/30')
+    //     .then(resp => resp.json())
+    //     .then(userData => {
+    //         this.setState({
+    //            user: {...userData}
+    //         })
+    //     })
+    // }
 
 
         render() {

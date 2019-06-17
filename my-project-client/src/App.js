@@ -48,14 +48,26 @@ class App extends Component {
       .insertAdjacentElement(`beforeend`, gmapScriptEl);
   }
 
+  getLoginData = response => {
+    this.setState({
+      user: {
+        userID: response.id,
+        username: response.username,
+        email: response.email
+      }
+    })
+  }
+
   render() {
     return (
       <div>
         {/* <NavBar />
         <Login />
         <CreateAcct /> */}
-        {this.state.gmapsLoaded && <Home />}
-        <UserPage />
+        {/* {this.state.gmapsLoaded && <Home />} */}
+        {/* <UserPage userData={this.state.user} /> */}
+        {/* <CreateAcct getLoginData={this.getLoginData} /> */}
+        <Login getLoginData={this.getLoginData}/>
       </div>
     );
   }
