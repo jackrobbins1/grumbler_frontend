@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
-import './containerStyles/homeStyle.css';
-import InspectionList from './InspectionList'
-import secretKey from '../secret/secret.js'
-import LocationSearchInput from '../components/LocationSearchInput';
+import React, { Component } from "react";
+import "./containerStyles/homeStyle.css";
+import InspectionList from "./InspectionList";
+import secretKey from "../secret/secret.js";
+import LocationSearchInput from "../components/LocationSearchInput";
 
-const recent25Inspecs = "https://data.cityofchicago.org/resource/4ijn-s7e5.json?$order=inspection_date DESC&$limit=25"
+const recent25Inspecs =
+  "https://data.cityofchicago.org/resource/4ijn-s7e5.json?$order=inspection_date DESC&$limit=25";
 
 class Home extends Component {
     state = {
@@ -55,12 +56,8 @@ class Home extends Component {
               </div>
           </div>
         </div>
-        
-      )
-      
-      
-      
-    }
+    );
   }
-  
-  export default Home;
+}
+
+export default Home;
