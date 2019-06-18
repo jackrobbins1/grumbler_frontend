@@ -16,7 +16,8 @@ class App extends Component {
     user: {
       userID: undefined,
       username: undefined,
-      email: undefined
+      email: undefined,
+      complaint_id: []
     },
     loginSuccess: false,
     currentPage: "home",
