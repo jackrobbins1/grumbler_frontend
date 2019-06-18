@@ -62,15 +62,19 @@ class App extends Component {
   render() {
     return (
         <BrowserRouter >
+        <Navbar />
           <div>
-          <Navbar />
-          {/* <NavBar />
-          <Login />
-          <CreateAcct /> */}
-          {/* {this.state.gmapsLoaded && <Home />} */}
-          {/* <UserPage userData={this.state.user} /> */}
-          {/* <CreateAcct getLoginData={this.getLoginData} /> */}
-          <Login getLoginData={this.getLoginData}/>
+            <Route path="/" component={() => this.state.gmapsLoaded && <Home />} />
+            <Route path="/login" component={() => <Login getLoginData={this.getLoginData}/>}/>
+            <Route path="/create-account" component={CreateAcct} />
+            <Route path="/user-page" component={() => <UserPage userData={this.state.user} />} />
+
+            {/* <Route path="/rest-show" component={() => <RestShowPage getLoginData={this.getLoginData}/>} /> */}
+
+            {/* {this.state.gmapsLoaded && <Home />} */}
+            {/* <UserPage userData={this.state.user} /> */}
+            {/* <CreateAcct getLoginData={this.getLoginData} /> */}
+            <Login getLoginData={this.getLoginData}/>
           
 
           </div>
