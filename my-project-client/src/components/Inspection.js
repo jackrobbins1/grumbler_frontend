@@ -32,12 +32,14 @@ class Inspection extends Component {
           <br />
           <div>
             Violations:{" "}
-            {this.props.data.violations
+            {this.props.data.violations ? this.props.data.violations
               .toLowerCase()
               .split("|")
               .map(vio => (
                 <p>{vio}</p>
-              ))}
+              ))
+              :
+              null}
           </div>
           <br />
         </div>
