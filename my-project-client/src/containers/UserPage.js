@@ -7,15 +7,15 @@ import Form from '../components/Form'
 import CommentBox from './CommentBox'
 
 class UserPage extends Component {
-    state = {
-    user: {
-        user_id: "",
-        username: "",
-        email: "",
-        restaurant_id: [],
-        complaint_id: []
-      }
-    }
+    // state = {
+    // user: {
+    //     user_id: "",
+    //     username: "",
+    //     email: "",
+    //     restaurant_id: [],
+        
+    //   }
+    // }
 
     // componentDidMount(){
     //     fetch('http://localhost:3001/api/v1/users/30')
