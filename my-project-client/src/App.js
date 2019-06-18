@@ -64,19 +64,18 @@ class App extends Component {
         <BrowserRouter >
         <Navbar />
           <div>
-            <Route path="/" component={() => this.state.gmapsLoaded && <Home />} />
-            <Route path="/login" component={() => <Login getLoginData={this.getLoginData}/>}/>
-            <Route path="/create-account" component={CreateAcct} />
-            <Route path="/user-page" component={() => <UserPage userData={this.state.user} />} />
+            <Route exact path="/" component={() => this.state.gmapsLoaded && <Home />} />
+            <Route exact path="/login" component={() => <Login getLoginData={this.getLoginData}/>}/>
+            <Route exact path="/create-account" component={CreateAcct} />
+            <Route exact path="/user-page" component={() => <UserPage userData={this.state.user} />} />
 
             {/* <Route path="/rest-show" component={() => <RestShowPage getLoginData={this.getLoginData}/>} /> */}
 
             {/* {this.state.gmapsLoaded && <Home />} */}
             {/* <UserPage userData={this.state.user} /> */}
             {/* <CreateAcct getLoginData={this.getLoginData} /> */}
-            <Login getLoginData={this.getLoginData}/>
+            {/* <Login getLoginData={this.getLoginData}/> */}
           
-
           </div>
         </BrowserRouter>
     );
