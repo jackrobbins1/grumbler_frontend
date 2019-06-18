@@ -12,14 +12,14 @@
     grid-area: search;
     color: red;
     text-align: center;
-    border: 3px solid red;
+    /* border-bottom: 3px solid gray; */
 }
 
 .recentInspections{
     grid-area: recentInspections;
     color: blue;
     text-align: center;
-    border: 3px solid blue;
+    /* border: 3px solid blue; */
 }
 
 /* Google Stuff Below */

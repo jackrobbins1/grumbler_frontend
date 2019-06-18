@@ -4,7 +4,7 @@ import PlacesAutocomplete, {
   geocodeByPlaceId,
   getLatLng
 } from "react-places-autocomplete";
-import secretKey from "../secret1/secret";
+import "./componentStyles/locationInput.css"
 
 class LocationSearchInput extends React.Component {
   constructor(props) {
@@ -111,7 +111,9 @@ class LocationSearchInput extends React.Component {
             <input
               {...getInputProps({
                 placeholder: "Search Places ...",
-                className: "location-search-input"
+                // className: "location-search-input, myInput"
+                // className: "location-search-input"
+                className: "myInput"
               })}
             />
             <div className="autocomplete-dropdown-container">

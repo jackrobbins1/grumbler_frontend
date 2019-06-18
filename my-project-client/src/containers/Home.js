@@ -49,14 +49,24 @@ class Home extends Component {
       <div>
         <div className="homeContainer">
           <div className="searchContainer">
-            Search Container here
+            <div className="ui center aligned header">Search for a restaurant:</div>
             <LocationSearchInput handleNewAddress={this.handleNewAddress} />
           </div>
-
           <div className="recentInspections">
-            Recent Inspection list
+            
+            <div className="ui divider"></div>
+
+            <div className="ui center aligned header">
+            {
+              this.state.searchResults.length === 0
+                ? "25 Most Recent Inspections:"
+                : "Inspections From Search Results:"
+            }
+            </div>
             {/* <InspectionList inspections={this.state.recent25} /> */}
             <InspectionList
+              user={this.props.user}
+              getCurrentRest={this.props.getCurrentRest}
               inspections={
                 this.state.searchResults.length === 0
                   ? this.state.recent25

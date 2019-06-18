@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import 'semantic-ui-css/semantic.min.css'
 import CommentBox from "./containers/CommentBox";
 import RestShowPage from "./containers/RestShowPage";
 import Home from "./containers/Home";
@@ -14,14 +15,15 @@ import { BrowserRouter, Route, Link } from "react-router-dom";
 class App extends Component {
   state = {
     user: {
-      userID: undefined,
+      userID: 0,
       username: undefined,
       email: undefined,
       complaint_id: []
     },
     loginSuccess: false,
     currentPage: "home",
-    gmapsLoaded: false
+    gmapsLoaded: false,
+    currentRestData: {}
   };
 
   handleScriptCreate() {
@@ -62,17 +64,25 @@ class App extends Component {
     })
   }
 
+  getCurrentRest = data => {
+    this.setState({
+      currentRestData: data
+    })
+    this.history.push("/")
+  }
+
   render() {
     return (
         <BrowserRouter >
         <Navbar />
           <div>
-            <Route exact path="/" component={() => this.state.gmapsLoaded && <Home />} />
+            <Route exact path="/" component={() => this.state.gmapsLoaded && <Home getCurrentRest={this.getCurrentRest} user={this.state.user} />} />
             <Route exact path="/login" component={() => <Login getLoginData={this.getLoginData}/>}/>
             <Route exact path="/create-account" component={CreateAcct} />
             <Route exact path="/user-page" component={() => <UserPage userData={this.state.user} />} />
 
-            {/* <Route path="/rest-show" component={() => <RestShowPage getLoginData={this.getLoginData}/>} /> */}
+            {/* <Route path="/rest-show/:lid" component={() => <RestShowPage getLoginData={this.getLoginData}/>} /> */}
+            <Route path="/rest-show/:lid/:uid" component={RestShowPage} />
 
             {/* {this.state.gmapsLoaded && <Home />} */}
             {/* <UserPage userData={this.state.user} /> */}

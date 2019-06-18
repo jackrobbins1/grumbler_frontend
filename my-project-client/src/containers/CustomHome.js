@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './containerStyles/customHomeStyle.css'
 
 class Home extends Component {
     state = {

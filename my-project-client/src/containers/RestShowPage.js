@@ -3,6 +3,9 @@ import "./containerStyles/restShowStyle.css";
 import CommentBox from "../containers/CommentBox";
 import RestInspectionList from "./RestInspectionList";
 
+// To get the restaurant id use this.props.match.params.lid
+// To get the user id use this.props.match.params.uid
+
 class RestShowPage extends Component {
   state = {
     restData: "",
@@ -10,9 +13,17 @@ class RestShowPage extends Component {
   };
 
   componentDidMount() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+    console.log(this.props)
+    // fetch(
+    //   `https://data.cityofchicago.org/resource/4ijn-s7e5.json?license_=${
+    //     this.props.license
+    //   }`
+    // )
     fetch(
       `https://data.cityofchicago.org/resource/4ijn-s7e5.json?license_=${
-        this.props.license
+        this.props.match.params.lid
       }`
     )
       .then(resp => resp.json())
@@ -24,11 +35,16 @@ class RestShowPage extends Component {
       );
   }
 
+  goBack = () => {
+    this.props.history.goBack()
+  }
+
   render() {
     return (
       <div className="restShowMain">
         <div className="restHeader">
-          <button onClick={this.props.handleBackButton}>Back</button>
+          {/* <button onClick={this.props.handleBackButton}>Back</button> */}
+          <button onClick={this.goBack}>Back</button>
           <br />
           {this.state.restData.aka_name}
           <br />
@@ -56,6 +72,7 @@ class RestShowPage extends Component {
           Here is where the complaints from our rails back end will be
         </div>
       </div>
+
     );
   }
 }

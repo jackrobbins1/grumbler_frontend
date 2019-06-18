@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Inspection from "../components/Inspection";
 import RestShowPage from "./RestShowPage";
+import "./containerStyles/inspectionList.css";
+
 
 class InspectionList extends Component {
   state = {
@@ -31,7 +33,7 @@ class InspectionList extends Component {
         />
       );
     } else {
-      return <div>{this.createInspectionItems()}</div>;
+      return <div className="subContainer">{this.createInspectionItems()}</div>;
     }
   };
   componentDidMount() {
@@ -44,6 +46,8 @@ class InspectionList extends Component {
     return this.props.inspections.map(insp => {
       return (
         <Inspection
+          user={this.props.user}
+          getCurrentRest={this.props.getCurrentRest}
           key={insp.inspection_id}
           data={insp}
           handleRestClick={this.handleRestClick}
@@ -53,7 +57,9 @@ class InspectionList extends Component {
   };
 
   render() {
-    return <div>{this.renderControl()}</div>;
+    return (
+        <div>{this.renderControl()}</div>
+    ) 
   }
 }
 
