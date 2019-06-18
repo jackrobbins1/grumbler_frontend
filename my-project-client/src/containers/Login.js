@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import { withRouter } from "react-router-dom";
+
 
 class Login extends Component {
     state = {
       username: '',
-      email: ''
+      email: '',
+      loginSuccessful: false
     }
 
     handleChange = event => {
@@ -34,8 +37,25 @@ class Login extends Component {
       .then(resp => resp.json())
       .then(result => {
         console.log("result: ", result)
-        this.props.getLoginData(result)
+        this.checkLoginResult(result)
+        if (this.state.loginSuccessful === true) {
+          this.props.getLoginData(result)
+          this.props.history.push("/")
+        }
       })
+      .catch(error => {
+        console.log(error)
+      })
+    }
+
+    checkLoginResult = result => {
+      if (!!result.errors === true) {
+        alert("Login failed, please try another username and email")
+      } else {
+        this.setState({
+          loginSuccessful: true
+        })
+      }
     }
   
     render() {
@@ -78,4 +98,4 @@ class Login extends Component {
     }
   }
   
-  export default Login;
+  export default withRouter(Login);

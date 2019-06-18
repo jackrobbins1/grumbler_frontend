@@ -18,6 +18,7 @@ class App extends Component {
       username: undefined,
       email: undefined
     },
+    loginSuccess: false,
     currentPage: "home",
     gmapsLoaded: false
   };
@@ -55,7 +56,8 @@ class App extends Component {
         userID: response.id,
         username: response.username,
         email: response.email
-      }
+      },
+      loginSuccess: true
     })
   }
 
