@@ -10,7 +10,6 @@
 
 .searchContainer {
     grid-area: search;
-    color: red;
     text-align: center;
     /* border-bottom: 3px solid gray; */
 }

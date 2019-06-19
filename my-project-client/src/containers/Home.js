@@ -63,7 +63,6 @@ class Home extends Component {
                 : "Inspections From Search Results:"
             }
             </div>
-            {/* <InspectionList inspections={this.state.recent25} /> */}
             <InspectionList
               user={this.props.user}
               getCurrentRest={this.props.getCurrentRest}

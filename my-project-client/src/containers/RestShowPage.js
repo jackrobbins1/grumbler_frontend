@@ -17,11 +17,6 @@ class RestShowPage extends Component {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
     console.log(this.props)
-    // fetch(
-    //   `https://data.cityofchicago.org/resource/4ijn-s7e5.json?license_=${
-    //     this.props.license
-    //   }`
-    // )
     fetch(
       `https://data.cityofchicago.org/resource/4ijn-s7e5.json?license_=${
         this.props.match.params.lid
@@ -47,7 +42,6 @@ class RestShowPage extends Component {
           
           <Segment.Group raised className="restHeader">
             <Segment>
-              {/* <button onClick={this.props.handleBackButton}>Back</button> */}
               <Header as='h1'>
                 {this.state.restData.aka_name}
               </Header>
