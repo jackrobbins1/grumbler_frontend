@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import RestInspection from "../components/RestInspection";
+import { Segment } from 'semantic-ui-react'
+
 
 class RestInspectionList extends Component {
   constructor() {
@@ -11,8 +13,12 @@ class RestInspectionList extends Component {
     this.props.allInspections.map(inspection => {
       return <RestInspection inspection={inspection} />;
     });
+  // render() {
+  //   return <div>{this.renderInspections()}</div>;
+  // }
   render() {
-    return <div>{this.renderInspections()}</div>;
+    return <Segment.Group>{this.renderInspections()}</Segment.Group>;
   }
 }
+
 export default RestInspectionList;

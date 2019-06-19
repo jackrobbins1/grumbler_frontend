@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./containerStyles/restShowStyle.css";
 import CommentBox from "../containers/CommentBox";
 import RestInspectionList from "./RestInspectionList";
+import { Segment, SegmentGroup } from 'semantic-ui-react'
 
 // To get the restaurant id use this.props.match.params.lid
 // To get the user id use this.props.match.params.uid
@@ -42,27 +43,31 @@ class RestShowPage extends Component {
   render() {
     return (
       <div className="restShowMain">
-        <div className="restHeader">
-          {/* <button onClick={this.props.handleBackButton}>Back</button> */}
-          <button onClick={this.goBack}>Back</button>
-          <br />
-          {this.state.restData.aka_name}
-          <br />
-          {this.state.restData.address}
-          <br />
-          {this.state.restData.city}, {this.state.restData.state}{" "}
-          {this.state.restData.zip}
-        </div>
 
-        <div className="restDetails">
-          Here are details of the RESTAURANT
-          <br />
-          License Number: {this.state.restData.license_}
-          <br />
-          Facility Type: {this.state.restData.facility_type}
-          <br />
-          Risk Level: {this.state.restData.risk}
-        </div>
+        <Segment.Group raised className="restHeader">
+          <Segment>
+            {/* <button onClick={this.props.handleBackButton}>Back</button> */}
+            <button onClick={this.goBack}>Back</button>
+            <br />
+            {this.state.restData.aka_name}
+            <br />
+            {this.state.restData.address}
+            <br />
+            {this.state.restData.city}, {this.state.restData.state}{" "}
+            {this.state.restData.zip}
+          </Segment>
+
+          <Segment>
+            Here are details of the RESTAURANT
+            <br />
+            License Number: {this.state.restData.license_}
+            <br />
+            Facility Type: {this.state.restData.facility_type}
+            <br />
+            Risk Level: {this.state.restData.risk}
+          </Segment>
+
+        </Segment.Group>
 
         <div className="restInspections">
           <RestInspectionList allInspections={this.state.allInspections} />

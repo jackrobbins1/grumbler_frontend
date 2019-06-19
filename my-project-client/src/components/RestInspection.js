@@ -1,10 +1,14 @@
 import React, { Component } from "react";
+import { Segment } from 'semantic-ui-react'
+import "./componentStyles/restInspection.css"
+
 
 class RestInspection extends Component {
   constructor() {
     super();
     this.state = {
-      expanded: false
+      expanded: false,
+      hover: false
     };
   }
 
@@ -16,10 +20,48 @@ class RestInspection extends Component {
     }
   };
 
+  // renderInspection = () => {
+  //   if (this.state.expanded) {
+  //     return (
+  //       <div onClick={this.handleClick}>
+  //         {this.props.inspection.inspection_date.slice(0, 10)} |{" "}
+  //         {this.props.inspection.results}
+  //         <br />
+  //         <div>
+  //           Violations:{" "}
+  //           {this.props.inspection.violations
+  //             .toLowerCase()
+  //             .split("|")
+  //             .map(vio => (
+  //               <p>{vio}</p>
+  //             ))}
+  //           <div />
+  //           <br />
+  //         </div>
+  //       </div>
+  //     );
+  //   } else {
+  //     return (
+  //       <div div onClick={this.handleClick}>
+  //         {this.props.inspection.inspection_date.slice(0, 10)} |{" "}
+  //         {this.props.inspection.results}
+  //       </div>
+  //     );
+  //   }
+  // };
+
+  hoverOn = () => {
+    this.setState({ hover: true });
+  }
+
+  hoverOff = () => {
+    this.setState({ hover: false });    
+  }
+
   renderInspection = () => {
     if (this.state.expanded) {
       return (
-        <div onClick={this.handleClick}>
+        <Segment onClick={this.handleClick} onMouseEnter={this.hoverOn} onMouseLeave={this.hoverOff} >
           {this.props.inspection.inspection_date.slice(0, 10)} |{" "}
           {this.props.inspection.results}
           <br />
@@ -34,14 +76,14 @@ class RestInspection extends Component {
             <div />
             <br />
           </div>
-        </div>
+        </Segment>
       );
     } else {
       return (
-        <div div onClick={this.handleClick}>
+        <Segment div onClick={this.handleClick}>
           {this.props.inspection.inspection_date.slice(0, 10)} |{" "}
           {this.props.inspection.results}
-        </div>
+        </Segment>
       );
     }
   };
