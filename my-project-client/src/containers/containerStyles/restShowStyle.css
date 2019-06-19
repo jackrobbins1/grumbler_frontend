@@ -23,7 +23,6 @@
 
 .restHeader {
     grid-area: header;
-    color: red;
     text-align: center;
     border: 3px solid red;
     padding: 0 auto;
@@ -37,15 +36,13 @@
 }
 .restInspections {
     grid-area: inspections;
-    color: green;
+    width: 99%;
     text-align: center;
-    border: 3px solid green;
-    height: 100%;
+    height: auto;
 }
 .restComplaints {
     grid-area: complaints;
-    color: purple;
     text-align: center;
-    border: 3px solid purple;
-    height: 100%;
+    /* border: 3px solid purple; */
+    height: auto;
 }

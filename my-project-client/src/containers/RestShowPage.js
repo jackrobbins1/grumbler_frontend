@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./containerStyles/restShowStyle.css";
 import CommentBox from "../containers/CommentBox";
 import RestInspectionList from "./RestInspectionList";
-import { Segment, SegmentGroup } from 'semantic-ui-react'
+import { Segment, Header } from 'semantic-ui-react'
 
 // To get the restaurant id use this.props.match.params.lid
 // To get the user id use this.props.match.params.uid
@@ -49,22 +49,30 @@ class RestShowPage extends Component {
             {/* <button onClick={this.props.handleBackButton}>Back</button> */}
             <button onClick={this.goBack}>Back</button>
             <br />
-            {this.state.restData.aka_name}
-            <br />
-            {this.state.restData.address}
-            <br />
-            {this.state.restData.city}, {this.state.restData.state}{" "}
-            {this.state.restData.zip}
+            <Header as='h1'>
+              {this.state.restData.aka_name}
+            </Header>
+            <Header.Subheader>
+              {this.state.restData.address}
+            </Header.Subheader>
+            <Header.Subheader>
+            {this.state.restData.city}, {this.state.restData.state}{" "}{this.state.restData.zip}
+            </Header.Subheader>
           </Segment>
 
           <Segment>
-            Here are details of the RESTAURANT
-            <br />
-            License Number: {this.state.restData.license_}
-            <br />
-            Facility Type: {this.state.restData.facility_type}
-            <br />
-            Risk Level: {this.state.restData.risk}
+            <Header as='h4'>
+              {this.state.restData.aka_name} Details:
+            </Header>
+            <Header.Subheader>
+              License Number: {this.state.restData.license_}
+            </Header.Subheader>
+            <Header.Subheader>
+              Facility Type: {this.state.restData.facility_type}
+            </Header.Subheader>
+            <Header.Subheader>
+              Risk Level: {this.state.restData.risk}
+            </Header.Subheader>
           </Segment>
 
         </Segment.Group>

@@ -7,8 +7,7 @@ class RestInspection extends Component {
   constructor() {
     super();
     this.state = {
-      expanded: false,
-      hover: false
+      expanded: false
     };
   }
 
@@ -50,18 +49,11 @@ class RestInspection extends Component {
   //   }
   // };
 
-  hoverOn = () => {
-    this.setState({ hover: true });
-  }
-
-  hoverOff = () => {
-    this.setState({ hover: false });    
-  }
 
   renderInspection = () => {
     if (this.state.expanded) {
       return (
-        <Segment onClick={this.handleClick} onMouseEnter={this.hoverOn} onMouseLeave={this.hoverOff} >
+        <Segment onClick={this.handleClick} className="onHover" >
           {this.props.inspection.inspection_date.slice(0, 10)} |{" "}
           {this.props.inspection.results}
           <br />
@@ -80,7 +72,7 @@ class RestInspection extends Component {
       );
     } else {
       return (
-        <Segment div onClick={this.handleClick}>
+        <Segment className="onHover" onClick={this.handleClick}>
           {this.props.inspection.inspection_date.slice(0, 10)} |{" "}
           {this.props.inspection.results}
         </Segment>
