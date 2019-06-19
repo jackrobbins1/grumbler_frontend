@@ -87,8 +87,7 @@ class Login extends Component {
               </Segment>
             </Form>
             <Message>
-              New to us? <a href='#'>Sign Up</a>
-            </Message>
+            New to us? <a href='http://localhost:3000/create-account'>Sign Up</a>            </Message>
           </Grid.Column>
         </Grid>
       )

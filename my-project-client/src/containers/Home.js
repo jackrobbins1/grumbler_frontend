@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./containerStyles/homeStyle.css";
 import InspectionList from "./InspectionList";
-import secretKey from "../secret/secret.js";
+import secretKey from "../secret1/secret.js";
 import LocationSearchInput from "../components/LocationSearchInput";
 
 const recent25Inspecs =

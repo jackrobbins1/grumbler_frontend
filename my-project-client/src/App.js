@@ -8,7 +8,7 @@ import Login from "./containers/Login";
 import CreateAcct from "./containers/CreateAcct";
 import UserPage from "./containers/UserPage";
 import CustomHome from "./containers/CustomHome";
-import secretKey from "./secret/secret";
+import secretKey from "./secret1/secret";
 import Navbar from "./components/Layout/Navbar";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 
