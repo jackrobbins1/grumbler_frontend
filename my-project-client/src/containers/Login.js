@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
-import { withRouter } from "react-router-dom";
+import { withRouter, NavLink } from "react-router-dom";
 
 
 class Login extends Component {
@@ -87,7 +87,7 @@ class Login extends Component {
               </Segment>
             </Form>
             <Message>
-            New to us? <a href='http://localhost:3000/create-account'>Sign Up</a>            </Message>
+            New to us? <NavLink to="/create-account">Sign Up</NavLink>           </Message>
           </Grid.Column>
         </Grid>
       )
