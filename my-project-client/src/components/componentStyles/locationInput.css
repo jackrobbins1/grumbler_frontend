@@ -9,3 +9,8 @@
     outline: none;
     margin: 0 auto;
 }
+
+.myWidth {
+    width: 75%;
+    margin: 0 auto !important;
+}

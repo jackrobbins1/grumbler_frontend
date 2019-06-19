@@ -1,24 +1,18 @@
-/* .restShowMain {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 150px 200px 100%;
-    grid-template-areas: 
-      "header header"
-      "details details"
-      "inspections complaints";
-    height: 100%;
-} */
+.superMain {
+    position: relative;
+}
 
 .restShowMain {
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-rows: auto 100%;
+    grid-template-rows: auto auto;
     grid-template-areas: 
       "header header"
       "inspections complaints";
     height: 100%;
     width: 95%;
     margin: 0 auto;
+    padding-bottom: 30px;
 }
 
 .restHeader {
@@ -45,4 +39,10 @@
     text-align: center;
     /* border: 3px solid purple; */
     height: auto;
+}
+
+.backButton {
+    position: fixed;
+    top: 120px;
+    left: 30px
 }

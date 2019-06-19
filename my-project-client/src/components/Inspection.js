@@ -59,7 +59,7 @@ class Inspection extends Component {
       );
     } else {
       return (
-        <Card>
+        <Card className="onHover">
           <div onClick={this.handleClick}>
             {/* <div
               onClick={event =>
